@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="css/stye.css">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+</head>
+<body>
+  <div id="header" class="header">
+    <h1 class="header-title">Weather Forecast</h1>
+  </div>
+  <div id="app" class="weather_box">
+    <div class="weather_img">
+      <p v-if="condition.main == 'Rain'"><img src="img/rain.gif" alt="Rainy"></p>
+      <p v-else-if="condition.main == 'Clouds'"><img src="img/cloudy.gif" alt="Cloudy"></p>
+      <p v-else-if="condition.main == 'Clear'"><img src="img/sunny.gif" alt="Sunny"></p>
+      <p v-else-if="condition.main == 'Snow'"><img src="img/snow.gif" alt="Snow"></p>
+      <p v-else-if="condition.main == 'Mist'"><img src="img/mist.gif" alt="Mist"></p>
+      <p v-else><img src="img/else.gif" alt="else"></p>
+    </div>
+    <div class="weather_info">
+      <p class="weather_city">{{ city }}</p>
+      <p class="weather_condition">{{ condition.main }}</p>
+      <p class="weather_temp">{{ temp | roundUp }}&deg;C</p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
